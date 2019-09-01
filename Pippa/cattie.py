@@ -8,16 +8,12 @@ app.secret_key = b"\x9f\x00\x1d.i\x80U\x8c\x9bPD]\xfbu\xe2\x8d\x12\x12\xc5\xef]h
 
 @app.route('/')
 @app.route('/index')
-def intro():
-    body = """
-        <h1>Hello Pippa!</h>
-        <li><img src="https://www.wideopenspaces.com/wp-content/uploads/2018/04/ftd-babyrabbit.jpg" class="card-img-top" alt="Bunnies"></li>
-        <h2>Here's a kitty!</h2>
-        <li><img src="http://images6.fanpop.com/image/photos/34800000/Kittens-3-animals-34865316-1920-1200.jpg" 
-        class="card-img-top" alt="Kitties width="600" height="450""></li>
-        """
 
-    return Response(response=body, mimetype="text/html")
+def intro():
+    image_one = "static/ftd-babyrabbit.jpg"
+    image_two = "static/Kitten.jpg"
+    return render_template('index.html', image_one=image_one, image_two = image_two)
+
 
 
 if __name__ == "__main__":
